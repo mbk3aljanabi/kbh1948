@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الصورة في موقع الشيخ كريم برهان الجنابي</title>
+    <style>
+        body {
+            width: 100%;
+            background-color: #2e0abf; /* أزرق طوخ */
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0px;
+        }
+        header {
+        width: 100%;
+        background: linear-gradient(135deg, #1104019b, #000000);
+        color: rgb(255, 255, 255);
+        position: sticky;
+        padding: 2rem;
+        top: 0;
+        z-index: 1000;
+        }
+
+        .top-bar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap:wrap ;
+        }
+        header h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #fff700;
+        }
+
+        .image-container img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            max-height: 50vh; /* لا تتجاوز نصف طول الشاشة */
+            border-radius: 20px;
+            border:5px solid rgb(0, 0, 0);
+            box-shadow: 1px 1px 25px rgb(255, 0, 0);
+        }
+        .info-box {
+            background: white;
+            color: #000000;
+            width: 90%;
+            max-width: 600px;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            border-right: 10px solid #ff0000;
+        }
+        .info-box h3 {
+            background: #2e0abf;
+            color: #e5ff00;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .info-box p {
+            margin: 1rem ;
+            padding-right: 5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-align: justify;
+            color: #000000;
+        }
+        .back-btn {
+            margin: 2rem 0;
+            padding: 12px 30px;
+            background-color: #f20b0b;
+            color: white;
+            text-decoration: none;
+            border:3px solid #ffffff;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-btn:hover { 
+            background-color: #ffffff; 
+            color: #2e0abf; 
+        }
+        footer { 
+            width: 100%;
+            margin: 0px;
+            margin-top: auto; 
+            font-size: 0.9rem; 
+            color: #2e0abf;
+            background-color: #ffffff;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+<header>
+  <div class="top-bar">
+    <h1>معلومات هذه الصورة : </h1>
+  </div>
+
+
+</header>
+
+
+    <div class="image-container">
+        <img id="main-img" src="" alt="صورة التفاصيل">
+    </div>
+    <a href="kbh_page.html" class="back-btn">👉 العودة للموقع الرسمي</a>
+
+    <div class="info-box">
+        <h3>السنــــــــــة:</h3> <p id="item-year"></p>
+        <h3>الدولـــــــــة:</h3> <p id="item-country"></p>
+        <h3>الــــــوصف:</h3> <p id="item-desc"></p>
+    </div>
+
+    <a href="kbh_page.html" class="back-btn">👉 العودة للموقع الرسمي</a>
+
+    <footer>
+  <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
+    </footer>
+<script src="js.js"></script>
+</body>
+</html>

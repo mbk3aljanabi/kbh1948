@@ -1,6 +1,4 @@
-/* script.js */
-
-// 1. قاعدة بيانات بسيطة داخل الكود
+/* 1. قاعدة بيانات بسيطة داخل الكود */
 const detailsData = {
     "1": {
         img: "folder_images/شعار قبيلة الجنابيين.jpg",
@@ -14,38 +12,43 @@ const detailsData = {
         country: "العراق - بغداد",
         desc: "كتاب يتناول القضايا السياسية بأسلوب أدبي رفيع، تأليف الشيخ كريم برهان."
     }
-    
-    
 };
 
-// 2. وظيفة لقراءة الـ ID من الرابط وتغيير المحتوى
-const urlParams = new URLSearchParams(window.location.search);
-const itemId = urlParams.get('id');
+/* 2. دالة معالجة تفاصيل الصفحة (قراءة الـ ID) */
+function loadDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemId = urlParams.get('id');
 
-// التأكد من أن الصفحة قد حُملت بالكامل قبل تشغيل الكود
-window.onload = function() {
-    if (itemId && detailsData[itemId]) {
-        document.getElementById('main-img').src = detailsData[itemId].img;
-        document.getElementById('item-year').innerText = detailsData[itemId].year;
-        document.getElementById('item-country').innerText = detailsData[itemId].country;
-        document.getElementById('item-desc').innerText = detailsData[itemId].desc;
-    } else {
-        document.body.innerHTML = "<div style='text-align:center; color:white; margin-top:50px;'><h1>يرجى اعادة تحميل الصفحة هناك خطأ!!!!!!  </h1><a href='index.html' style='color:cyan;'>الرجوع الى الموقع </a></div>";
+    // إذا كنا في صفحة التفاصيل (حيث توجد هذه الـ IDs)
+    if (itemId) {
+        if (detailsData[itemId]) {
+            if(document.getElementById('main-img')) document.getElementById('main-img').src = detailsData[itemId].img;
+            if(document.getElementById('item-year')) document.getElementById('item-year').innerText = detailsData[itemId].year;
+            if(document.getElementById('item-country')) document.getElementById('item-country').innerText = detailsData[itemId].country;
+            if(document.getElementById('item-desc')) document.getElementById('item-desc').innerText = detailsData[itemId].desc;
+        } else {
+            // تنبيه بوجود خطأ فقط إذا لم يعثر على الـ ID في قاعدة البيانات
+            console.error("ID غير موجود في قاعدة البيانات");
+        }
     }
-};
+}
 
-// 3. وظائف البحث
-  function toggleSearch() {
-    var box = document.getElementById("searchBox");
+/* 3. وظائف البحث */
+function toggleSearch() {
+    const box = document.getElementById("searchBox");
+    if (!box) return;
+    
     if (box.style.display === "flex") {
         box.style.display = "none";
     } else {
         box.style.display = "flex";
-        document.getElementById("searchInput").focus();
+        setTimeout(() => {
+            const input = document.getElementById("searchInput");
+            if(input) input.focus();
+        }, 100);
     }
 }
 
-// وظيفة البحث عند الضغط على Enter
 function handleSearch(event) {
     if (event.key === "Enter") {
         executeSearch();
@@ -53,14 +56,26 @@ function handleSearch(event) {
 }
 
 function executeSearch() {
-    let query = document.getElementById('searchInput').value;
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    
+    let query = input.value;
     if (query.trim() !== "") {
-        // window.find هي وظيفة المتصفح للبحث عن نص وتظليله والانتقال إليه
-        // المعايير: (النص، حالة الأحرف، البحث للخلف، التكرار)
         let found = window.find(query, false, false, true); 
-        
         if (!found) {
             alert("لم يتم العثور على نتائج");
         }
     }
 }
+
+/* 4. تشغيل كل الوظائف عند تحميل الصفحة بطريقة صحيحة */
+document.addEventListener('DOMContentLoaded', () => {
+    // تشغيل كود التفاصيل
+    loadDetails();
+
+    // ربط أحداث البحث
+    const searchInput = document.getElementById('searchInput');
+    if(searchInput) {
+        searchInput.addEventListener('keypress', handleSearch);
+    }
+});

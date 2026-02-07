@@ -541,23 +541,28 @@
     <div class="card_tawasil_wrapper"> 
            <div class="card_tawasil" >
             <div class="contact_item">
-                <h3>📍 الموقع (GPS) :</h3>
+                <h3>📞  رقم الهاتف : 07814866666</h3>
+                <a class="pdf-link" href="tel:07814866666" target="_blank">اتصـــل بنـــا </a>
+            </div>
+
+            <div class="contact_item">
+                <h3>📍 العنوان : العراق / بابل / الكفل ....... (GPS)</h3>
                 <a class="pdf-link" href="https://maps.app.goo.gl/2uWty55e3tWRzAdN9" target="_blank">فتح الخريطة</a>
             </div>
 
             <div class="contact_item">
-                <h3>🔵 فيس بوك (إعلام أبو بشير) :</h3>
+                <h3>👥 فيس بوك : إعلام أبو بشير</h3>
                 <a class="pdf-link" href="https://www.facebook.com/krym.hsyn.995673" target="_blank">زيارة الصفحة</a>
             </div>
 
             <div class="contact_item">
-                <h3>👥 فيس بوك (إعلام قبيلة الجنابيين) :</h3>
+                <h3>👥 فيس بوك : اعلام قبيلة الجنابيين - الفرات الاوسط</h3>
                 <a class="pdf-link" href="https://www.facebook.com/tribe.aljanabi" target="_blank">زيارة الصفحة</a>
             </div>
 
             <div class="contact_item">
-                <h3>🎬 اليوتيوب (الشيخ كريم برهان) :</h3>
-                <a class="pdf-link" href="https://www.youtube.com/@..." target="_blank">مشاهدة الآن</a>
+                <h3>🎬 قنوات اليوتيوب </h3>
+                <a class="pdf-link" href="https://www.youtube.com/@%D8%A7%D9%84%D8%B4%D9%8A%D8%AE_%D9%83%D8%B1%D9%8A%D9%85_%D8%A8%D8%B1%D9%87%D8%A7%D9%86_%D8%A7%D9%84%D8%AC%D9%86%D8%A7%D8%A8%D9%8A" target="_blank">مشاهدة الآن</a>
             </div>
         </div>
     </div>
@@ -566,36 +571,6 @@
 <footer>
   <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
 </footer>
-<script>
-  function toggleSearch() {
-    var box = document.getElementById("searchBox");
-    if (box.style.display === "flex") {
-        box.style.display = "none";
-    } else {
-        box.style.display = "flex";
-        document.getElementById("searchInput").focus();
-    }
-}
-
-// وظيفة البحث عند الضغط على Enter
-function handleSearch(event) {
-    if (event.key === "Enter") {
-        executeSearch();
-    }
-}
-
-function executeSearch() {
-    let query = document.getElementById('searchInput').value;
-    if (query.trim() !== "") {
-        // window.find هي وظيفة المتصفح للبحث عن نص وتظليله والانتقال إليه
-        // المعايير: (النص، حالة الأحرف، البحث للخلف، التكرار)
-        let found = window.find(query, false, false, true); 
-        
-        if (!found) {
-            alert("لم يتم العثور على نتائج");
-        }
-    }
-}
-</script>
+<script src="js.js"></script>
 </body>
 </html>

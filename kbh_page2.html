@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفاصيل الصورة في موقع الشيخ كريم برهان الجنابي</title>
+    <link rel="stylesheet" href="style.css">
 
     <style>
         body {
@@ -48,6 +49,7 @@
             border:5px solid rgb(0, 0, 0);
             box-shadow: 1px 1px 25px rgb(255, 0, 0);
         }
+
         .info-box {
             background: white;
             color: #000000;
@@ -102,17 +104,19 @@
 </head>
 <body>
 <header>
-  <div class="top-bar">
-    <h1>معلومات هذه الصورة : </h1>
-  </div>
 
+  <div class="top-bar">
+    <h2  id="item-title-display" style="color: rgb(255, 255, 0); text-align: center; "></h2>
+  </div>
 
 </header>
 
-
     <div class="image-container">
-        <img id="main-img" src="" alt="صورة التفاصيل">
+        <img id="main-img" src="" alt="حدث خطا في تحميل الصورة 😢">   
+    
     </div>
+
+
     <a href="index.html" class="back-btn">👉 العودة للموقع الرسمي</a>
 
     <div class="info-box">
@@ -126,6 +130,16 @@
     <footer>
   <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
     </footer>
+    <div class="search-wrapper">
+    <div id="searchBox" class="search-box">
+        <input type="text" id="searchInput" style="color: #943a0d;" placeholder="اكتب للبحث..." onkeypress="handleSearch(event)">
+        <button onclick="executeSearch()" style="background: #943a0d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">بحث</button>
+    </div>
+    <div class="search-floating-btn" onclick="toggleSearch()">
+        <i class="fa fa-search"></i>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="js.js"></script>
 </body>
 

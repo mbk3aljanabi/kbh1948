@@ -8,50 +8,7 @@
     html {
     scroll-behavior: smooth;
     }
-.search-wrapper {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 9999; /* رقم عالي جداً لضمان الظهور فوق كل شيء */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
 
-.search-floating-btn {
-    background: linear-gradient(135deg, #943a0d, #d4a017);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    font-size: 24px;
-}
-
-.search-box {
-    display: none; /* مخفي */
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    border: 2px solid #943a0d;
-    flex-direction: row;
-    gap: 5px;
-}
-
-.search-box input {
-    border: 1px solid #ccc;
-    outline: none;
-    padding: 8px;
-    direction: rtl;
-    width: 150px;
-    border-radius: 5px;
-}
     /* تنسيق الهيدر بالكامل */
 .main-header {
     background: linear-gradient(180deg, #1e00968c 0%, #000000 100%); /* تدرج أزرق ملكي */
@@ -179,7 +136,7 @@
     border-radius: 1rem;
     text-align: center;
     text-decoration: none; 
-    color: #ffffff;
+    color: rgb(255, 255, 0);
     width: 12rem; /* عرض ثابت يتناسب مع الموبايل والكمبيوتر */
     box-shadow: 0 4px 10px rgb(224, 0, 0);
     transition: transform 0.3s ease;
@@ -205,6 +162,8 @@
     font-weight: bold;
     font-size: 1.1em;
 }
+
+
 
     /*   cards    */
 
@@ -489,4 +448,48 @@
       width: auto;
     }
 
+    .search-wrapper {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999; /* رقم عالي جداً لضمان الظهور فوق كل شيء */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.search-floating-btn {
+    background: linear-gradient(135deg, #943a0d, #d4a017);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    font-size: 24px;
+}
+
+.search-box {
+    display: none; /* مخفي */
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid #943a0d;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.search-box input {
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 8px;
+    direction: rtl;
+    width: 150px;
+    border-radius: 5px;
+}
   

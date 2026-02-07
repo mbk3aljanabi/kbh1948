@@ -11,6 +11,12 @@ const detailsData = {
         year: "2024",
         country: "العراق - بغداد",
         desc: "كتاب يتناول القضايا السياسية بأسلوب أدبي رفيع، تأليف الشيخ كريم برهان."
+    },
+    "3": {
+        img: "folder_images/غلاف كتاب ابو صماخ.jpg",
+        year: "2020",
+        country: "العراق - بغداد",
+        desc: "كتاب يتناول القضايا السياسية بأسلوب أدبي رفيع، تأليف الشيخ كريم برهان."
     }
 };
 
@@ -18,11 +24,18 @@ const detailsData = {
 function loadDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('id');
-
-    // إذا كنا في صفحة التفاصيل (حيث توجد هذه الـ IDs)
+    const itemTitle = urlParams.get('title'); // 1. قراءة النص من الرابط
+    
     if (itemId) {
         if (detailsData[itemId]) {
             if(document.getElementById('main-img')) document.getElementById('main-img').src = detailsData[itemId].img;
+            
+            // 2. إضافة النص أسفل الصورة
+            const titleElement = document.getElementById('item-title-display');
+            if(titleElement && itemTitle) {
+                titleElement.innerText = decodeURIComponent(itemTitle); // فك تشفير النص العربي
+            }
+            
             if(document.getElementById('item-year')) document.getElementById('item-year').innerText = detailsData[itemId].year;
             if(document.getElementById('item-country')) document.getElementById('item-country').innerText = detailsData[itemId].country;
             if(document.getElementById('item-desc')) document.getElementById('item-desc').innerText = detailsData[itemId].desc;
@@ -32,6 +45,34 @@ function loadDetails() {
         }
     }
 }
+
+
+let index = 0;
+const carouselTrack = document.querySelector('.carousel-track');
+const totalCards = document.querySelectorAll('.card_count').length;
+
+function moveSlide(step) {
+  // حساب الموقع الجديد
+  index += step;
+
+  // إذا وصل للنهاية يعود للبداية والعكس
+  if (index > totalCards - 3) { index = 0; } 
+  if (index < 0) { index = totalCards - 3; }
+
+  const percentage = -(index * 33.33);
+  carouselTrack.style.transform = `translateX(${percentage}%)`;
+}
+
+// الحركة التلقائية كل 3 ثواني
+setInterval(() => {
+  moveSlide(1);
+}, 3000);
+
+
+
+
+
+
 
 /* 3. وظائف البحث */
 function toggleSearch() {
@@ -78,4 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if(searchInput) {
         searchInput.addEventListener('keypress', handleSearch);
     }
+});
+
+//    عرض اسم الصورة p  في الرابط عند الضغط على الكارد
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card_count');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            const text = this.querySelector('p').innerText;
+            const currentHref = this.getAttribute('href').split('&title=')[0];
+            this.setAttribute('href', `${currentHref}&title=${encodeURIComponent(text)}`);
+        });
+    });
 });

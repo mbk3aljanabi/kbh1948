@@ -33,3 +33,34 @@ window.onload = function() {
         document.body.innerHTML = "<div style='text-align:center; color:white; margin-top:50px;'><h1>يرجى اعادة تحميل الصفحة هناك خطأ!!!!!!  </h1><a href='index.html' style='color:cyan;'>الرجوع الى الموقع </a></div>";
     }
 };
+
+// 3. وظائف البحث
+  function toggleSearch() {
+    var box = document.getElementById("searchBox");
+    if (box.style.display === "flex") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "flex";
+        document.getElementById("searchInput").focus();
+    }
+}
+
+// وظيفة البحث عند الضغط على Enter
+function handleSearch(event) {
+    if (event.key === "Enter") {
+        executeSearch();
+    }
+}
+
+function executeSearch() {
+    let query = document.getElementById('searchInput').value;
+    if (query.trim() !== "") {
+        // window.find هي وظيفة المتصفح للبحث عن نص وتظليله والانتقال إليه
+        // المعايير: (النص، حالة الأحرف، البحث للخلف، التكرار)
+        let found = window.find(query, false, false, true); 
+        
+        if (!found) {
+            alert("لم يتم العثور على نتائج");
+        }
+    }
+}

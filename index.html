@@ -23,6 +23,7 @@
             <a href="#nashd">النشاط الاجتماعي</a>
             <a href="#tahkem">التحكيم العشائري</a>
             <a href="#ahdeth">الأحاديث</a>
+            <a href="#tawasil">اتصل بنا</a>
         </nav>
     </div>
 </header>
@@ -30,8 +31,8 @@
 <section class="hero" > 
   <img src="folder_images/صورة غلاف  الموقع الشيخ كريم برهان.jpg" alt="hero image">
 </section>
-
-<div class="carousel-container" id="images">
+<div id="images" class="carousel-container" >
+<h2  class="card_title"> صور المكتبة </h2>
 <div class="carousel-track" id="track">
 
     <a href="kbh_page2.html?id=1" class="card_count">
@@ -52,6 +53,16 @@
 </div>
 </div>
 
+<div class="search-wrapper">
+    <div id="searchBox" class="search-box">
+        <input type="text" id="searchInput" placeholder="اكتب للبحث..." onkeypress="handleSearch(event)">
+        <button onclick="executeSearch()" style="background: #943a0d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">بحث</button>
+    </div>
+    <div class="search-floating-btn" onclick="toggleSearch()">
+        <i class="fa fa-search"></i>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <section id="about" class="container">
   <h2 class="card_title">نبذة عن الشخصية</h2>
@@ -102,7 +113,7 @@
 </section>
 
 <section id="works" class="container">
-  <h2 class="card_title">المؤلفات والنتاج الفكري</h2>
+  <h2 class="card_title">المؤلفات </h2>
 <div class="cards">
 
 <div class="card">
@@ -460,30 +471,30 @@
 
 <div class="card_nashd">
         <h3> زار الشيخ كريم برهان الجنابي وابناء عمومته الكرام واجب اجتماعي  في الكفل . </h3>
-        <div style="text-align: justify">
+        <p >
 الشيخ كريم برهان الجنابي وابناء عمومته الكرام في واجب اجتماعي هذا اليوم في الكفل .
 كل التقدير للجميع.
 ونشكر السادة العميديين ومشايخ العشائر على حسن استقبالهم وتوديعهم .          <br></br>
           <a class="nashd-link" href="https://www.facebook.com/share/v/1Dkcak6EQE/" target="_blank">  مشاهدة  </a>
-        </div>
+        </p>
     </div>
 
 <div class="card_nashd">
         <h3>  عراضة وفاة الشيخ حسين حميد مرزوك العابدي في الديوانية </h3>
-        <div style="text-align: justify">
+        <p >
 توجه الشيخ كريم برهان الجنابي وبعض مشايخ ووجهاء قبيلة الجنابيين الفرات الاوسط  بعراضة تأبينية الى قبيلة العوابد  لمناسبة وفاة الشيخ حسين حميد مرزوك العابدي بالديوانية   .
         <br></br>
       <a class="nashd-link" href="https://www.facebook.com/share/v/19qgeiuXEb/" target="_blank">  مشاهدة  </a>
-        </div>
+        </p>
     </div>
 
 <div class="card_nashd">
         <h3>     عراضة لوفاه الأمير مثنى ال حاتم الحسناوي أمير اماره بني حسن  </h3>
-        <div style="text-align: justify">
+        <p >
 جانب من عراضة قبيلة الجنابيين في الفرات الاوسط إلى اماره بني حسن في العراق لوفاه الأمير مثنى ال حاتم الحسناوي أمير اماره بني حسن نسأل الله العلي القدير أن يرحمه برحمته الواسعه ويسكنه فسيح جناته ويلهم أهله ومحبيه الصبر والسلوان وانا لله وانا اليه راجعون
         <br></br>
       <a class="nashd-link" href="https://www.facebook.com/share/v/1AkhUuQUrG/" target="_blank">  مشاهدة  </a>
-        </div>
+        </p>
     </div>
 
 
@@ -498,11 +509,11 @@
 
 <div class="card_tahkem">
         <h3>تحكيم بين عشيرتين </h3>
-        <div style="text-align: justify">
+        <p >
           زار الشيخ كريم برهان محافظة بغداد
         <br></br>
         <a class="tahkem-link" href="https://www.facebook.com/reel/2040085846421040" target="_blank">  مشاهدة   </a>
-        </div>
+        </p>
     </div>
 
 
@@ -525,12 +536,10 @@
 
   </div> </section>
 
-  <section class="container">   
-  <h2 class="card_tawasil_title">معلومات التواصل  </h2>
-
+  <section id="tawasil" class="container" >   
+  <h2 class="card_tawasil_title">اتصل بنا </h2>
     <div class="card_tawasil_wrapper"> 
-        
-        <div class="card_tawasil">
+           <div class="card_tawasil" >
             <div class="contact_item">
                 <h3>📍 الموقع (GPS) :</h3>
                 <a class="pdf-link" href="https://maps.app.goo.gl/2uWty55e3tWRzAdN9" target="_blank">فتح الخريطة</a>
@@ -557,6 +566,36 @@
 <footer>
   <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
 </footer>
+<script>
+  function toggleSearch() {
+    var box = document.getElementById("searchBox");
+    if (box.style.display === "flex") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "flex";
+        document.getElementById("searchInput").focus();
+    }
+}
 
+// وظيفة البحث عند الضغط على Enter
+function handleSearch(event) {
+    if (event.key === "Enter") {
+        executeSearch();
+    }
+}
+
+function executeSearch() {
+    let query = document.getElementById('searchInput').value;
+    if (query.trim() !== "") {
+        // window.find هي وظيفة المتصفح للبحث عن نص وتظليله والانتقال إليه
+        // المعايير: (النص، حالة الأحرف، البحث للخلف، التكرار)
+        let found = window.find(query, false, false, true); 
+        
+        if (!found) {
+            alert("لم يتم العثور على نتائج");
+        }
+    }
+}
+</script>
 </body>
 </html>

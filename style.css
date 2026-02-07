@@ -5,11 +5,57 @@
       background: linear-gradient(135deg, #0d0de7ca, #2e0abf);
       overflow-x: hidden;
     }
+    html {
+    scroll-behavior: smooth;
+    }
+.search-wrapper {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999; /* رقم عالي جداً لضمان الظهور فوق كل شيء */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.search-floating-btn {
+    background: linear-gradient(135deg, #943a0d, #d4a017);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    font-size: 24px;
+}
+
+.search-box {
+    display: none; /* مخفي */
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid #943a0d;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.search-box input {
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 8px;
+    direction: rtl;
+    width: 150px;
+    border-radius: 5px;
+}
     /* تنسيق الهيدر بالكامل */
 .main-header {
     background: linear-gradient(180deg, #1e00968c 0%, #000000 100%); /* تدرج أزرق ملكي */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    padding: 20px;
     position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
     top: 0;
     z-index: 1000;
@@ -23,7 +69,17 @@
     flex-direction: column; /* جعل العناصر فوق بعضها (الاسم ثم الروابط) */
     align-items: center;    /* توسيط كل شيء */
 }
+/* سيتم تطبيق الإزاحة على أي عنصر يتم الانتقال إليه عبر رابط داخلي */
+[id] {
+    scroll-margin-top: 140px;
+}
 
+/* في حالة الموبايل، بما أن الهيدر قد يتغير ارتفاعه */
+@media (max-width: 768px) {
+    [id] {
+        scroll-margin-top: 110px; /* قيمة تقديرية لارتفاع الهيدر في الموبايل */
+    }
+}
 /* تنسيق اسم الشيخ */
 .name-brand h1 {
     color: #ffffff;
@@ -34,29 +90,31 @@
     letter-spacing: 1px;
 }
 
-/* تنسيق شريط الروابط */
+/* تنسيق شريط الانتقالات */
 .navbar {
     display: flex;
-    flex-wrap: wrap; /* للسماح للروابط بالنزول لسطر جديد في الموبايل */
     justify-content: center;
+    text-align: center;
     gap: 15px;
-    padding: 10px;
+    margin: 1rem;
+    padding: 1px;
 }
 
 .navbar a {
-    color: rgba(255, 255, 255, 0.9); /* لون أبيض شفاف قليلاً */
+    color: #eeff00; /* لون أصفر ذهبي */
     text-decoration: none;
     font-size: 1.05rem;
     font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 8px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #0d0de7ca, #1a8c7f);
     transition: all 0.3s ease;
 }
 
 /* تأثير عند تمرير الماوس فوق الروابط */
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* خلفية بيضاء خفيفة */
-    color: #e5ff00; /* يتغير اللون للأصفر الذهبي */
+    background-color: rgb(255, 255, 255); /* خلفية بيضاء خفيفة */
+    color: #ff0000; /* يتغير اللون للأصفر الذهبي */
     transform: translateY(-2px);
 }
 
@@ -181,7 +239,7 @@
 
     .card_title {
       margin: 10px;
-      background: #943a0d;
+      background: linear-gradient(135deg, #0d0de7ca, #943a0d);
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -225,9 +283,12 @@
       margin-top: 0;
       color: rgb(26, 140, 127);
     }
+        .card_nashd p {
+      text-align: justify;
+    }
 
     .card_title_nashd {
-      background: rgb(26, 140, 127);
+      background: linear-gradient(135deg, #0d0de7ca, #1a8c7f);
       color: #f0f0f0;
       text-align: center;
       padding: 20px;
@@ -265,9 +326,12 @@
       margin-top: 0;
       color: rgb(155, 47, 47);
     }
+    .card_tahkem p {
+      text-align: justify;
+    }
 
     .card_title_tahkem {
-      background: rgb(155, 47, 47);
+      background: linear-gradient(135deg, #0d0de7ca, #9b2f2f);
       color: #f0f0f0;
       text-align: center;
       padding: 20px;
@@ -305,9 +369,11 @@
       margin-top: 0;
       color: #ff1e1e;
     }
-
+    .card_ahdeth p {
+      text-align: justify;
+    }
     .card_title_ahdeth {
-      background: rgb(255, 7, 7);
+      background: linear-gradient(135deg, #0d0de7ca, #ff1e1e);
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -334,7 +400,7 @@
     /*  tawasil  */
 
     .card_tawasil_title {
-      background: rgb(0, 0, 0);
+      background: linear-gradient(135deg, #0d0de7, #000000);
       color: #ffffff;
       text-align: center;
       padding: 20px;

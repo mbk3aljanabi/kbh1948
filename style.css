@@ -123,14 +123,17 @@
     width: 100%;
     overflow: hidden;
     background: linear-gradient(135deg, #01010fca, #2e0abf);
-
+direction: ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }
 .carousel-track {
     display: flex;
     width: max-content;
-    animation: scroll 20s linear infinite; /* تحريك مستمر */
+
+    
+    animation: scroll 70s linear infinite; /* تحريك مستمر */
 }
 .card_count {
+  flex-shrink: 0;
     margin: 10px;
     border: 3px solid #ddd;
     border-radius: 1rem;

@@ -47,29 +47,6 @@ function loadDetails() {
 }
 
 
-let index = 0;
-const carouselTrack = document.querySelector('.carousel-track');
-const totalCards = document.querySelectorAll('.card_count').length;
-
-function moveSlide(step) {
-  // حساب الموقع الجديد
-  index += step;
-
-  // إذا وصل للنهاية يعود للبداية والعكس
-  if (index > totalCards - 3) { index = 0; } 
-  if (index < 0) { index = totalCards - 3; }
-
-  const percentage = -(index * 33.33);
-  carouselTrack.style.transform = `translateX(${percentage}%)`;
-}
-
-// الحركة التلقائية كل 3 ثواني
-setInterval(() => {
-  moveSlide(1);
-}, 3000);
-
-
-
 
 
 

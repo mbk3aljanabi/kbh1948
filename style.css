@@ -1,9 +1,14 @@
 
+    * {
+    box-sizing: border-box;
+}
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
       background: #dddbc3;
       overflow-x: hidden;
+      width: 100%;
     }
     html {
     scroll-behavior: smooth;
@@ -20,8 +25,9 @@
 }
 
 .header-container {
-    max-width: 1200px;
+  max-width: 100%;
     margin: 0 auto;
+    overflow: hidden; /* لمنع أي تجاوزات في التصميم */
     display: flex;
     flex-direction: column; /* جعل العناصر فوق بعضها (الاسم ثم الروابط) */
     align-items: center;    /* توسيط كل شيء */
@@ -107,9 +113,11 @@ img {
 
 /* تعديل الحاويات لتكون مرنة */
 .container {
-    width: 100%;
+    padding: 20px;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
     box-sizing: border-box; /* لضمان أن البادينج لا يزيد من عرض العنصر */
-    padding: 15px; /* تقليل الحواف في الموبايل */
 }
 
 /* تعديل الهيدر ليناسب الشاشات الصغيرة */
@@ -120,8 +128,11 @@ img {
     }
     
     .navbar {
+      display: flex;
+
         flex-wrap: wrap; /* لجعل الأزرار تنزل تحت بعضها إذا ضاقت الشاشة */
-        gap: 8px;
+        gap: 10px;
+        padding: 10px;
         justify-content: center;
     }
 
@@ -150,11 +161,27 @@ img {
 .carousel-track:hover {
     animation-play-state: paused;
 }
-  
+ 
+@media (max-width: 768px) {
+    .name-brand h1 {
+        font-size: 1.4rem; /* تصغير الخط ليتناسب مع العرض */
+        text-align: center;
+    }
+    
+    .card_count {
+        width: 140px; /* تقليل عرض الكروت في الشريط الدوار */
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* عرض كرت واحد فقط في السطر لمنع التمدد الجانبي */
+    }
+}
+
   /*  card_count */
 .carousel-container {
     width: 100%;
     overflow: hidden;
+    position: relative;
     background: #dddbc3;
     direction: ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }

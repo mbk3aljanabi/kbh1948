@@ -103,3 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+window.onload = function() {
+    const track = document.getElementById('track');
+    if (track) {
+        // مضاعفة محتوى الكروت لضمان عدم وجود فراغ أثناء الحركة
+        const cards = track.innerHTML;
+        track.innerHTML = cards + cards;
+    }
+};

@@ -15,8 +15,6 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      overflow: hidden;
-      position: relative;
     scroll-behavior: smooth;
     }
 
@@ -198,6 +196,7 @@ img {
 .carousel-track {
     display: flex;
     width: max-content;
+    animation: scroll 30s linear infinite; /* تأكد أن كلمة scroll تطابق اسم الـ keyframes */
 
     
     animation: scroll 70s linear infinite; /* تحريك مستمر */

@@ -9,8 +9,14 @@
       background: #dddbc3;
       overflow-x: hidden;
       width: 100%;
+    position: relative;
     }
     html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
     scroll-behavior: smooth;
     }
 
@@ -37,12 +43,7 @@
     scroll-margin-top: 140px;
 }
 
-/* في حالة الموبايل، بما أن الهيدر قد يتغير ارتفاعه */
-@media (max-width: 768px) {
-    [id] {
-        scroll-margin-top: 110px; /* قيمة تقديرية لارتفاع الهيدر في الموبايل */
-    }
-}
+
 /* تنسيق اسم الشيخ */
 .name-brand h1 {
     color: #ffffff;
@@ -81,16 +82,7 @@
     transform: translateY(-2px);
 }
 
-/* استجابة الموبايل */
-@media (max-width: 768px) {
-    .name-brand h1 {
-        font-size: 1.6rem;
-    }
-    .navbar a {
-        font-size: 0.9rem;
-        padding: 5px 10px;
-    }
-}
+
 
     .hero {
       background-position: center;
@@ -119,63 +111,81 @@ img {
     overflow: hidden;
     box-sizing: border-box; /* لضمان أن البادينج لا يزيد من عرض العنصر */
 }
-
-/* تعديل الهيدر ليناسب الشاشات الصغيرة */
+/* *****************************************  */
 @media (max-width: 768px) {
+    
+    /* منع أي تمدد جانبي وضمان احتواء العناصر */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* الهيدر والعنوان */
     .header-container {
         width: 100%;
         padding: 10px;
     }
     
-    .navbar {
-      display: flex;
-
-        flex-wrap: wrap; /* لجعل الأزرار تنزل تحت بعضها إذا ضاقت الشاشة */
-        gap: 10px;
-        padding: 10px;
-        justify-content: center;
+    .name-brand h1 {
+        font-size: 1.4rem; 
+        text-align: center;
     }
 
+    /* شريط التنقل - حل مشكلة الفراغ الجانبي */
+    .navbar {
+        display: flex;
+        flex-wrap: wrap; /* لجعل الأزرار تنزل تحت بعضها */
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 5px;
+    }
+    
     .navbar a {
         font-size: 0.85rem;
-        padding: 8px 12px; /* تكبير منطقة الضغط للإصبع */
+        padding: 8px 12px;
+        flex: 0 1 auto; /* لمنع الأزرار من كسر التنسيق */
     }
 
-    /* جعل الكروت تأخذ عرضاً مناسباً في الموبايل */
+    /* الكروت الرئيسية */
     .cards {
-        grid-template-columns: 1fr; /* كارت واحد في كل سطر للموبايل */
+        grid-template-columns: 1fr; /* كرت واحد فقط في السطر */
+        gap: 15px;
     }
     
+    /* الشريط الدوار (Carousel) */
     .card_count {
-        width: 10rem; /* تصغير الكروت الدوارة قليلاً */
+        width: 140px; /* تقليل العرض ليناسب الشاشات الصغيرة */
+    }
+
+    /* إزاحة السكرول عند الضغط على الروابط */
+    [id] {
+        scroll-margin-top: 110px;
+    }
+
+    /* قسم اتصل بنا للشاشات الصغيرة جداً */
+    .contact_item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .contact_item h3 {
+        text-align: center;
     }
 }
-    
 
-/* حركة الشريط */
+/* --- حركة الشريط (تعمل للكمبيوتر والموبايل) --- */
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* سيتم مضاعفة العناصر في JS */
+    100% { transform: translateX(-50%); }
 }
-/* توقف الحركة عند مرور الماوس */
+
 .carousel-track:hover {
     animation-play-state: paused;
 }
- 
-@media (max-width: 768px) {
-    .name-brand h1 {
-        font-size: 1.4rem; /* تصغير الخط ليتناسب مع العرض */
-        text-align: center;
-    }
-    
-    .card_count {
-        width: 140px; /* تقليل عرض الكروت في الشريط الدوار */
-    }
+/* ********************************************  */
 
-    .cards {
-        grid-template-columns: 1fr; /* عرض كرت واحد فقط في السطر لمنع التمدد الجانبي */
-    }
-}
+ 
 
   /*  card_count */
 .carousel-container {
@@ -489,17 +499,7 @@ img {
     filter: brightness(1.2);
 }
 
-/* تأثير الاستجابة للموبايل */
-@media (max-width: 600px) {
-    .contact_item {
-        flex-direction: column; /* تحويل العناصر فوق بعضها في الشاشات الصغيرة */
-        gap: 10px;
-        text-align: center;
-    }
-    .contact_item h3 {
-        text-align: center;
-    }
-}
+
 
     /*   footer    */
 

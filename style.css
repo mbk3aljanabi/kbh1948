@@ -2,7 +2,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-      background: linear-gradient(135deg, #0d0de7ca, #2e0abf);
+      background: #dddbc3;
       overflow-x: hidden;
     }
     html {
@@ -11,7 +11,7 @@
 
     /* تنسيق الهيدر بالكامل */
 .main-header {
-    background: linear-gradient(180deg, #1e00968c 0%, #000000 100%); /* تدرج أزرق ملكي */
+    background: linear-gradient(180deg, #1e009600 0%, #000000 100%); /* تدرج أزرق ملكي */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
     top: 0;
@@ -95,17 +95,50 @@
     }
     
     .hero img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
     display: block;
     }
+/* تأكد أن الصور لا تخرج عن إطار الشاشة أبداً */
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-    .container {
-      padding: 30px 20px;
-      max-width: 1100px;
-      margin: auto;
+/* تعديل الحاويات لتكون مرنة */
+.container {
+    width: 100%;
+    box-sizing: border-box; /* لضمان أن البادينج لا يزيد من عرض العنصر */
+    padding: 15px; /* تقليل الحواف في الموبايل */
+}
+
+/* تعديل الهيدر ليناسب الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .header-container {
+        width: 100%;
+        padding: 10px;
     }
-     
+    
+    .navbar {
+        flex-wrap: wrap; /* لجعل الأزرار تنزل تحت بعضها إذا ضاقت الشاشة */
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 8px 12px; /* تكبير منطقة الضغط للإصبع */
+    }
+
+    /* جعل الكروت تأخذ عرضاً مناسباً في الموبايل */
+    .cards {
+        grid-template-columns: 1fr; /* كارت واحد في كل سطر للموبايل */
+    }
+    
+    .card_count {
+        width: 10rem; /* تصغير الكروت الدوارة قليلاً */
+    }
+}
     
 
 /* حركة الشريط */
@@ -122,7 +155,7 @@
 .carousel-container {
     width: 100%;
     overflow: hidden;
-    background: linear-gradient(135deg, #01010fca, #2e0abf);
+    background: #dddbc3;
     direction: ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }
 .carousel-track {
@@ -137,9 +170,10 @@
     margin: 10px;
     border: 3px solid #ddd;
     border-radius: 1rem;
+    background: linear-gradient(135deg, #0d0de7ca, #1a8c7f);
     text-align: center;
     text-decoration: none; 
-    color: rgb(255, 255, 0);
+    color: rgb(255, 255, 255);
     width: 12rem; /* عرض ثابت يتناسب مع الموبايل والكمبيوتر */
     box-shadow: 0 4px 10px rgb(224, 0, 0);
     transition: transform 0.3s ease;

@@ -107,22 +107,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//    عرض اسم الصورة p  في الرابط عند الضغط على الكارد
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card_count');
-    cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            const text = this.querySelector('p').innerText;
-            const currentHref = this.getAttribute('href').split('&title=')[0];
-            this.setAttribute('href', `${currentHref}&title=${encodeURIComponent(text)}`);
-        });
-    });
-});
-window.onload = function() {
-    const track = document.getElementById('track');
-    if (track) {
-        // مضاعفة محتوى الكروت لضمان عدم وجود فراغ أثناء الحركة
-        const cards = track.innerHTML;
-        track.innerHTML = cards + cards;
-    }
-};

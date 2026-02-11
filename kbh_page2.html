@@ -30,7 +30,7 @@ width: 100%;
         }
 
         .top-bar {
-display: flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         padding: 0 10px;
@@ -127,6 +127,10 @@ margin: 0.5rem 0;
   </div>
 
 </header>
+<div class="lang-switch">
+  <button onclick="setLang('ar')" class="lang-btn">عربي</button>
+  <button onclick="setLang('en')" class="lang-btn">English</button>
+</div>
 
     <div class="image-container">
         <img id="main-img" src="" alt="حدث خطا في تحميل الصورة 😢">   
@@ -158,6 +162,36 @@ margin: 0.5rem 0;
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="js.js"></script>
+<!-- Google Translate Hidden -->
+<div id="google_translate_element" style="display:none;"></div>
+<script>
+function setLang(lang) {
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+
+    if (select) {
+      clearInterval(waitForTranslate);
+
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    }
+  }, 300);
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ar',
+    includedLanguages: 'ar,en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 
 </html>

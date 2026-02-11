@@ -27,7 +27,7 @@ document.querySelectorAll('.card_count').forEach(card => {
         
         const id = this.href.split('id=')[1]; // جلب الـ ID من الرابط
         const text = this.querySelector('p').innerText; // جلب النص من داخل الـ p
-        
+ 
         // الانتقال للرابط الجديد مع النص تلقائياً
         window.location.href = `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
     });
@@ -58,32 +58,7 @@ function loadDetails() {
         }
     }
 }
-function toggleLang() {
-  // محاولة جلب عنصر الاختيار الخاص بجوجل
-  const select = document.querySelector(".goog-te-combo");
-  
-  if (!select) {
-    alert("المترجم لم يكتمل تحميله بعد، انتظر ثانية...");
-    return;
-  }
 
-  // إذا كانت القيمة الحالية فارغة أو 'ar'، نحولها لـ 'en'
-  // ملاحظة: جوجل أحياناً تضع القيمة الأصلية "" (فراغ)
-  let currentVal = select.value;
-  let targetLang = (currentVal === 'en') ? 'ar' : 'en';
-
-  // تغيير الاختيار
-  select.value = targetLang;
-
-  // أهم خطوة: إطلاق الحدث لكي تبدأ الترجمة
-  select.dispatchEvent(new Event("change"));
-
-  // تعديل اتجاه الصفحة يدوياً لضمان الدقة
-  document.documentElement.dir = (targetLang === 'ar') ? 'rtl' : 'ltr';
-  document.documentElement.lang = targetLang;
-  
-  console.log("تم تحويل اللغة إلى: " + targetLang);
-}
 
 /* 3. وظائف البحث */
 function toggleSearch() {

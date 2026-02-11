@@ -18,15 +18,7 @@
     scroll-behavior: smooth;
     }
 
-    /* تنسيق الهيدر بالكامل */
-.main-header {
-    background: linear-gradient(180deg, #1e009600 0%, #000000 100%); /* تدرج أزرق ملكي */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
-    top: 0;
-    z-index: 1000;
-    border-bottom: 3px solid #943a0d; /* خط ذهبي رفيع لإضافة فخامة */
-}
+  
 .lang-btn {
   z-index: 9999;
   cursor: pointer;
@@ -43,11 +35,27 @@
     color: #ff0000; /* يتغير اللون للأصفر الذهبي */
     transform: translateY(-2px);
 }
-
+  /* تنسيق الهيدر بالكامل */
+.main-header {
+      background: linear-gradient(135deg, #0d0de7ae, #943a0d);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
+    position:-webkit-sticky; /* مهم لبعض أجهزة الموبايل */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #943a0d; /* خط ذهبي رفيع لإضافة فخامة */
+}
+/* هذا يتفعل عند التثبيت */
+.main-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 .header-container {
-  max-width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    overflow: hidden; /* لمنع أي تجاوزات في التصميم */
+    overflow: visible;
     display: flex;
     flex-direction: column; /* جعل العناصر فوق بعضها (الاسم ثم الروابط) */
     align-items: center;    /* توسيط كل شيء */
@@ -91,13 +99,13 @@
       background-position: center;
       background-size: cover;
       background-repeat: repeat;
-      height: 100%;
+      height: auto;
       width: 100%;
+      display: contents;
+      max-width: 100%;
     }
     
     .hero img {
-    max-width: 100%;
-    height: auto;
     display: block;
     }
 /* تأكد أن الصور لا تخرج عن إطار الشاشة أبداً */
@@ -137,7 +145,6 @@ img {
     /* شريط التنقل - حل مشكلة الفراغ الجانبي */
     .navbar {
         display: flex;
-        flex-wrap: wrap; /* لجعل الأزرار تنزل تحت بعضها */
         justify-content: center;
         gap: 8px;
         margin: 10px 5px;
@@ -211,7 +218,7 @@ img {
     margin: 10px;
     border: 3px solid #ddd;
     border-radius: 1rem;
-    background: linear-gradient(135deg, #0d0de7ca, #1a8c7f);
+    background: linear-gradient(135deg, #0d0de7, #1a8c7f);
     text-align: center;
     text-decoration: none; 
     color: rgb(255, 255, 255);

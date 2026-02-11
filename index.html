@@ -14,14 +14,11 @@
 <body>
 
 
-
-<section class="hero" > 
-  <img src="folder_images/صورة غلاف  الموقع الشيخ كريم برهان.jpg" alt="hero image">
-</section>
-<header class="main-header">
-    <div class="header-container">
-
-
+<header class="hero" >
+  <img src="folder_images/صورة غلاف  الموقع الشيخ كريم برهان.jpg" alt="صورة غلاف الموقع الشيخ كريم برهان ">
+</header>
+<section class="main-header" > 
+<div class="header-container">
         <nav class="navbar">
             <a href="#images">صور المكتبة</a>
             <a href="#about">نبذة عن الشخصية</a>
@@ -31,11 +28,12 @@
             <a href="#tahkem">التحكيم العشائري</a>
             <a href="#ahdeth">الأحاديث</a>
             <a href="#tawasil">اتصل بنا</a>
-            <button onclick="toggleLang()" class="lang-btn"> English / عربي</button>
+            <button onclick="setLang('ar')" class="lang-btn">عربي</button>
+            <button onclick="setLang('en')" class="lang-btn">English</button>
 
         </nav>
     </div>
-</header>
+</section>
 
 
 <div id="images" class="carousel-container" >
@@ -567,6 +565,7 @@
 <footer>
   <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
 </footer>
+<!-- search all page -->
 <div class="search-wrapper">
     <div id="searchBox" class="search-box">
         <input type="text" id="searchInput" style="color: #943a0d;" placeholder="اكتب للبحث..." onkeypress="handleSearch(event)">
@@ -580,25 +579,24 @@
 
 <!-- Google Translate Hidden -->
 <div id="google_translate_element" style="display:none;"></div>
+<!-- lange en arb -->
 
 <script>
-let currentLang = "ar";
+function setLang(lang) {
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
 
-function toggleLang() {
-  const select = document.querySelector(".goog-te-combo");
-  if (!select) {
-    alert("الترجمة لم تجهز بعد، انتظر ثانيتين");
-    return;
-  }
+    if (select) {
+      clearInterval(waitForTranslate);
 
-  currentLang = currentLang === "ar" ? "en" : "ar";
-  select.value = currentLang;
-  select.dispatchEvent(new Event("change"));
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
 
-  document.documentElement.lang = currentLang;
-  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    }
+  }, 300);
 }
-
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'ar',
@@ -607,8 +605,26 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 </script>
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- main header -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const header = document.querySelector(".main-header");
+    const headerOffset = header.offsetTop;
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY >= headerOffset) {
+            header.classList.add("fixed");
+        } else {
+            header.classList.remove("fixed");
+        }
+
+    });
+
+});
+</script>
 
 
 </body>

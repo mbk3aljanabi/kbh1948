@@ -2,47 +2,57 @@
 const detailsData = {
     "1": {
         img: "folder_images/شعار قبيلة الجنابيين.jpg",
-        year: "",
+        text: "شعار قبيلة الجنابيين",
+        year: "123",
         country: "",
         desc: "هذا هو شعار قبيلة الجنابيين العريقة، يرمز للأصالة والتاريخ."
-    },
+   },
     "2": {
-        img: "folder_images/.jpg",
-        year: "",
-        country: "",
-        desc: ""
+        img: "folder_images/غلاف كتاب ابو صماخ.jpg",
+        year: "1222 هـ - 1807 م",
+        country: "uvhr",
+        desc: "غلاف كتاب \"ابو صماخ\"."
     }
 };
 
-/* 2. دالة معالجة تفاصيل الصفحة (قراءة الـ ID) */
+// هذا الكود يوضع في الصفحة الأولى فقط
+document.querySelectorAll('.card_count').forEach(card => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault(); // أوقف الانتقال المؤقت
+        
+        const id = this.href.split('id=')[1]; // جلب الـ ID من الرابط
+        const text = this.querySelector('p').innerText; // جلب النص من داخل الـ p
+        
+        // الانتقال للرابط الجديد مع النص تلقائياً
+        window.location.href = `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
+    });
+});
 function loadDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('id');
-    const itemTitle = urlParams.get('title'); // 1. قراءة النص من الرابط
-    
-    if (itemId) {
-        if (detailsData[itemId]) {
-            if(document.getElementById('main-img')) document.getElementById('main-img').src = detailsData[itemId].img;
-            
-            // 2. إضافة النص أسفل الصورة
-            const titleElement = document.getElementById('item-title-display');
-            if(titleElement && itemTitle) {
-                titleElement.innerText = decodeURIComponent(itemTitle); // فك تشفير النص العربي
-            }
-            
-            if(document.getElementById('item-year')) document.getElementById('item-year').innerText = detailsData[itemId].year;
-            if(document.getElementById('item-country')) document.getElementById('item-country').innerText = detailsData[itemId].country;
-            if(document.getElementById('item-desc')) document.getElementById('item-desc').innerText = detailsData[itemId].desc;
-        } else {
-            // تنبيه بوجود خطأ فقط إذا لم يعثر على الـ ID في قاعدة البيانات
-            console.error("ID غير موجود في قاعدة البيانات");
+    const textFromP = urlParams.get('infoText'); // ✅ جلب النص اللي سحبناه من الـ p
+
+    if (itemId && detailsData[itemId]) {
+        // عرض الصورة
+        if (document.getElementById('main-img')) {
+            document.getElementById('main-img').src = detailsData[itemId].img;
+        }
+
+        // عرض النص اللي سحبناه من الـ p بالصفحة الأولى
+        if (document.getElementById('item-title-display')) {
+            document.getElementById('item-title-display').innerText = textFromP; 
+        }
+
+        // باقي البيانات من المصفوفة (detailsData)
+        if (document.getElementById('item-year')) {
+            document.getElementById('item-year').innerText = detailsData[itemId].year;
+        }
+        
+        if (document.getElementById('item-desc')) {
+            document.getElementById('item-desc').innerText = detailsData[itemId].desc;
         }
     }
 }
-
-
-
-
 
 
 /* 3. وظائف البحث */

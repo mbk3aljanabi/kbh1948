@@ -5,6 +5,7 @@
   <meta name="description" content="الموقع الرسمي للشيخ كريم برهان حسين الجنابي وهو شيخ قبيلة الجنابيين في الفرات الاوسط و فريضة ، يضم السيرة الذاتية و نبذة عن الشخصية و المؤلفات و المقالات و التحكيم العشائري و الاحاديث  ." />
   <meta name="keywords" content="الشيخ كريم برهان حسين الجنابي, كريم برهان الجنابي, مؤلفات الشيخ كريم برهان , فريضة , شيخ عشية , شيخ قبيلة , الجنابيين , العراق , محافظة بابل , الكفل شخصية اجتماعية وأدبية ، جمع بين العلم الشرعي والفكر الثقافي والعرف الاجتماعي وله إسهامات في التأليف والوعظ والشعر وخدمة المجتمع. " />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
   <title>الشيخ كريم برهان حسين الجنابي</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="js.js">
@@ -12,11 +13,14 @@
 </head>
 <body>
 
+
+
+<section class="hero" > 
+  <img src="folder_images/صورة غلاف  الموقع الشيخ كريم برهان.jpg" alt="hero image">
+</section>
 <header class="main-header">
     <div class="header-container">
-        <div class="name-brand">
-            <h1>الشيخ كريم برهان حسين الجنابي</h1>
-        </div>
+
 
         <nav class="navbar">
             <a href="#images">صور المكتبة</a>
@@ -27,22 +31,25 @@
             <a href="#tahkem">التحكيم العشائري</a>
             <a href="#ahdeth">الأحاديث</a>
             <a href="#tawasil">اتصل بنا</a>
+                    <button onclick="toggleLang()" class="lang-btn"> English / عربي</button>
+
         </nav>
     </div>
 </header>
 
-<section class="hero" > 
-  <img src="folder_images/صورة غلاف  الموقع الشيخ كريم برهان.jpg" alt="hero image">
-</section>
+
 <div id="images" class="carousel-container" >
 <h2  class="card_title"> صور المكتبة </h2>
 <div class="carousel-track" id="track">
 
 <a href="kbh_page2.html?id=1" class="card_count">
   <img src="folder_images/شعار قبيلة الجنابيين.jpg">
-  <p>شعار قبيلة الجنابيين</p>
+  <p>شعار قبيلة </p>
 </a>
-
+<a href="kbh_page2.html?id=2" class="card_count">
+  <img src="folder_images/غلاف كتاب ابو صماخ.jpg">
+  <p>غلاف كتاب "ابو صماخ"</p>
+</a>
 
 
 
@@ -569,5 +576,54 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <script src="js.js"></script>
+
+
+<script>
+let currentLang = "ar";
+
+function toggleLang() {
+  const select = document.querySelector(".goog-te-combo");
+  if (!select) {
+    alert("انتظر ... جاري تحميل أداة الترجمة");
+    return;
+  }
+
+  currentLang = currentLang === "ar" ? "en" : "ar";
+  select.value = currentLang;
+  select.dispatchEvent(new Event("change"));
+
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ar',
+    includedLanguages: 'ar,en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+document.querySelectorAll('.card_count').forEach(card => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault(); 
+        
+        // جلب الـ ID من الرابط الحالي (مثلاً لو كان الرابط kbh_page2.html?id=1)
+        const url = new URL(this.href, window.location.origin);
+        const id = url.searchParams.get('id');
+        
+        // جلب النص من داخل الـ p الموجود داخل الكرت اللي ضغطت عليه
+        const pElement = this.querySelector('p');
+        const text = pElement ? pElement.innerText : ""; 
+        
+        // الانتقال للصفحة الثانية مع إرسال النص في الرابط
+        window.location.href = `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
+    });
+});
+</script>
 </body>
 </html>

@@ -610,23 +610,5 @@ function googleTranslateElementInit() {
 
 
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-document.querySelectorAll('.card_count').forEach(card => {
-    card.addEventListener('click', function(e) {
-        e.preventDefault(); 
-        
-        // جلب الـ ID من الرابط الحالي (مثلاً لو كان الرابط kbh_page2.html?id=1)
-        const url = new URL(this.href, window.location.origin);
-        const id = url.searchParams.get('id');
-        
-        // جلب النص من داخل الـ p الموجود داخل الكرت اللي ضغطت عليه
-        const pElement = this.querySelector('p');
-        const text = pElement ? pElement.innerText : ""; 
-        
-        // الانتقال للصفحة الثانية مع إرسال النص في الرابط
-        window.location.href = `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
-    });
-});
-</script>
 </body>
 </html>

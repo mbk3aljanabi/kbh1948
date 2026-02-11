@@ -69,7 +69,6 @@ document.getElementById('item-title-display').innerText =
     }
 }
 
-
 /* 3. وظائف البحث */
 function toggleSearch() {
     const box = document.getElementById("searchBox");

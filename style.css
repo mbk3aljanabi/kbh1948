@@ -206,11 +206,13 @@ img {
     overflow: hidden;
     position: relative;
     background: #dddbc3;
-    direction: ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
+    cursor: grab;
 }
 .carousel-track {
     display: flex;
     width: max-content;
+    gap: 10px;
+    transition: transform 0.3s ease;
     animation: scroll 70s linear infinite; /* تحريك مستمر */
 }
 .card_count {
@@ -230,6 +232,8 @@ img {
     margin: 10px;
     width: 150px;
     height: 150px;
+    user-select: none;
+    pointer-events: none;
     text-align: center;
     object-fit: cover;
     border-radius: 30px; /* جعل الصور دائرية أجمل للمعرض */

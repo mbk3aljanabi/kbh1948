@@ -2,7 +2,6 @@
 const detailsData = {
     "1": {
         img: "folder_images/شعار قبيلة الجنابيين.jpg",
-        text: "شعار قبيلة الجنابيين",
         year: "123",
         country: "",
         desc: "هذا هو شعار قبيلة الجنابيين العريقة، يرمز للأصالة والتاريخ."
@@ -12,6 +11,12 @@ const detailsData = {
         year: "1222 هـ - 1807 م",
         country: "uvhr",
         desc: "غلاف كتاب \"ابو صماخ\"."
+    },
+    "3": {
+        img: "folder_images/غلاف كتاب الايام الطازجة.jpg",
+        year: "1222 هـ - 1807 م",
+        country: "uvhr",
+        desc: "غلاف كتاب لايام الطازجة"
     }
 };
 

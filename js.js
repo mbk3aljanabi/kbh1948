@@ -1,3 +1,24 @@
+/* كود الصفحة الأولى */
+const cards = document.querySelectorAll('.card_count');
+
+if (cards.length > 0) {
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const url = new URL(this.href);
+            const id = url.searchParams.get("id");
+
+            const pElement = this.querySelector("p");
+            const text = pElement ? pElement.innerText.trim() : "";
+
+            window.location.href =
+                `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
+        });
+    });
+}
+
+
 /* 1. قاعدة بيانات بسيطة داخل الكود */
 const detailsData = {
     "1": {
@@ -13,25 +34,13 @@ const detailsData = {
         desc: "غلاف كتاب \"ابو صماخ\"."
     },
     "3": {
-        img: "folder_images/غلاف كتاب الايام الطازجة.jpg",
+        img: "folder_images/   .jpg",
         year: "1222 هـ - 1807 م",
         country: "uvhr",
         desc: "غلاف كتاب لايام الطازجة"
     }
 };
 
-// هذا الكود يوضع في الصفحة الأولى فقط
-document.querySelectorAll('.card_count').forEach(card => {
-    card.addEventListener('click', function(e) {
-        e.preventDefault(); // أوقف الانتقال المؤقت
-        
-        const id = this.href.split('id=')[1]; // جلب الـ ID من الرابط
-        const text = this.querySelector('p').innerText; // جلب النص من داخل الـ p
- 
-        // الانتقال للرابط الجديد مع النص تلقائياً
-        window.location.href = `kbh_page2.html?id=${id}&infoText=${encodeURIComponent(text)}`;
-    });
-});
 function loadDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('id');
@@ -45,7 +54,8 @@ function loadDetails() {
 
         // عرض النص اللي سحبناه من الـ p بالصفحة الأولى
         if (document.getElementById('item-title-display')) {
-            document.getElementById('item-title-display').innerText = textFromP; 
+document.getElementById('item-title-display').innerText =
+    textFromP ? decodeURIComponent(textFromP) : "";
         }
 
         // باقي البيانات من المصفوفة (detailsData)

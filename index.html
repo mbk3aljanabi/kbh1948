@@ -578,8 +578,8 @@
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<script src="js.js"></script>
-
+<!-- Google Translate Hidden -->
+<div id="google_translate_element" style="display:none;"></div>
 
 <script>
 let currentLang = "ar";
@@ -587,7 +587,7 @@ let currentLang = "ar";
 function toggleLang() {
   const select = document.querySelector(".goog-te-combo");
   if (!select) {
-    alert("انتظر ... جاري تحميل أداة الترجمة");
+    alert("الترجمة لم تجهز بعد، انتظر ثانيتين");
     return;
   }
 
@@ -608,7 +608,8 @@ function googleTranslateElementInit() {
 }
 </script>
 
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </body>
 </html>

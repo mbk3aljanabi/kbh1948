@@ -37,7 +37,7 @@
 }
   /* تنسيق الهيدر بالكامل */
 .main-header {
-      background: linear-gradient(135deg, #0d0de7ae, #943a0d);
+    background: #6b2c0d;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
     position:-webkit-sticky; /* مهم لبعض أجهزة الموبايل */
@@ -74,17 +74,20 @@
     gap: 15px;
     margin: 1rem;
     padding: 1px;
+    flex-wrap:wrap;
 }
 
 .navbar a {
     color: #eeff00; /* لون أصفر ذهبي */
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: clamp(0.8rem, 3vw, 1.05rem); /* صغير في الموبايل وكبير بالحاسوب */
     font-weight: 500;
     padding: 5px 10px;
     border-radius: 15px;
     background: linear-gradient(135deg, #e7140dca, #1a8c7f);
     transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* تأثير عند تمرير الماوس فوق الروابط */
@@ -208,17 +211,14 @@ img {
 .carousel-track {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite; /* تأكد أن كلمة scroll تطابق اسم الـ keyframes */
-
-    
     animation: scroll 70s linear infinite; /* تحريك مستمر */
 }
 .card_count {
     flex-shrink: 0;
     margin: 10px;
     border: 3px solid #ddd;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #0d0de7, #1a8c7f);
+    border-radius: 2rem;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
     text-align: center;
     text-decoration: none; 
     color: rgb(255, 255, 255);
@@ -226,27 +226,28 @@ img {
     box-shadow: 0 4px 10px rgb(224, 0, 0);
     transition: transform 0.3s ease;
 }
-
-.card_count:hover {
-    transform: translateY(-10px);
-    border-color: #c2d400;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
 .card_count img {
     margin: 10px;
     width: 150px;
     height: 150px;
     text-align: center;
     object-fit: cover;
-    border-radius: 50%; /* جعل الصور دائرية أجمل للمعرض */
+    border-radius: 30px; /* جعل الصور دائرية أجمل للمعرض */
 }
-
 .card_count p {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
+    color: #ff0000;
 }
+.card_count:hover {
+    transform: translateY(-10px);
+    border-color: #c2d400;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+
 
 
 

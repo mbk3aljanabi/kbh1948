@@ -194,27 +194,32 @@ img {
     100% { transform: translateX(-50%); }
 }
 
-.carousel-track:hover {
-    animation-play-state: paused;
-}
+
 /* ********************************************  */
-
- 
-
   /*  card_count */
 .carousel-container {
     width: 100%;
     overflow: hidden;
     position: relative;
     background: #dddbc3;
-    direction: ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
+    direction:ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }
+/*.carousel-track:hover {
+    animation-play-state: paused;
+} */
 .carousel-track {
     display: flex;
     width: max-content;
-    animation: scroll 70s linear infinite; /* تحريك مستمر */
+    cursor: grab; /* يغير شكل الماوس ليد ممسكة */
+    user-select: none; /* منع تحديد النصوص/الصور أثناء السحب */
+    will-change: transform; /* تحسين الأداء */
+}
+
+.carousel-track:active {
+    cursor: grabbing; /* شكل اليد عند الضغط والسحب */
 }
 .card_count {
+    height:max-content;
     flex-shrink: 0;
     margin: 10px;
     border: 3px solid #ddd;
@@ -224,13 +229,13 @@ img {
     text-decoration: none; 
     color: rgb(255, 255, 255);
     width: 12rem; /* عرض ثابت يتناسب مع الموبايل والكمبيوتر */
-    box-shadow: 0 4px 10px rgb(224, 0, 0);
+    box-shadow: 0 4px 10px rgb(0, 0, 1);
     transition: transform 0.3s ease;
 }
 .card_count img {
     margin: 10px;
     width: 150px;
-    height: 150px;
+    height:max-content;
     text-align: center;
     object-fit: cover;
     border-radius: 30px; /* جعل الصور دائرية أجمل للمعرض */
@@ -239,7 +244,8 @@ img {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
-    color: #ff0000;
+    color: #f80d0d;
+    
 }
 .card_count:hover {
     transform: translateY(-10px);

@@ -18,7 +18,24 @@ if (cards.length > 0) {
     });
 }
 
+function moveManual(direction) {
+    // مقدار القفزة عند الضغط (تقريباً عرض كارت واحد)
+    const step = 300; 
+    
+    // إضافة كلاس التنعيم مؤقتاً لكي لا تكون القفزة حادة
+    track.classList.add('smooth-transition');
+    
+    // تحديث الموقع
+    currentTranslate += (direction * step);
+    
+    // تحريك الشريط
+    track.style.transform = `translateX(${currentTranslate}px)`;
 
+    // إزالة كلاس التنعيم بعد انتهاء الحركة لكي لا يؤثر على السحب اليدوي
+    setTimeout(() => {
+        track.classList.remove('smooth-transition');
+    }, 500);
+}
 /* 1. قاعدة بيانات بسيطة داخل الكود */
 const detailsData = {
     "1": {
@@ -119,7 +136,7 @@ const detailsData = {
     },
     "17": { 
         img: "folder_images/17.jpg",
-        year: "",
+        year: "1987 م",
         country: "",
         desc: "  "
     },
@@ -152,7 +169,16 @@ const detailsData = {
         year: "",
         country: "",
         desc: "  "
+    },
+    "23": { 
+        img: "folder_images/23.jpg",
+        year: "",
+        country: "",
+        desc: "  "
     }
+
+
+
 };
 
 function loadDetails() {
@@ -231,67 +257,100 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('keypress', handleSearch);
     }
 });
+
 /* 5. animation cuont imges*/
+
 const track = document.getElementById('track');
-let currentTranslate = 0; // الموقع الحالي للشريط
 let isDragging = false;
 let startX = 0;
-let animationId;
-const speed = 0.5; // سرعة الحركة التلقائية (يمكنك زيادتها أو تقليلها)
+let currentTranslate = 0;
+const speed = 0.5; // سرعة الحركة التلقائية
 
-// 1. وظيفة الحركة التلقائية
+// 1. استنساخ الصور برمجياً لضمان الاستمرارية
+// نأخذ محتوى الـ track ونكرره مرتين
+const originalContent = track.innerHTML;
+track.innerHTML += originalContent; 
+
+// حساب عرض الصور الأصلية (نصف العرض الكلي الجديد)
+let totalWidth = track.scrollWidth / 2;
+
 function playAnimation() {
     if (!isDragging) {
-        currentTranslate -= speed; // تحريك لليسار
+        currentTranslate -= speed;
 
-        // إذا عبر الشريط نصف طوله (لأنه مكرر)، يرجع للصفر لعمل Loop سلس
-        // ملاحظة: هذا يفترض أنك مكرر الصور داخل الـ track
-        if (Math.abs(currentTranslate) >= track.offsetWidth / 2) {
+        // إذا وصل الشريط لنهاية النسخة الأولى، يصفر الموقع فوراً
+        // Math.abs يحول الرقم لسالب لسهولة المقارنة
+        if (Math.abs(currentTranslate) >= totalWidth) {
             currentTranslate = 0;
         }
-
+        
         track.style.transform = `translateX(${currentTranslate}px)`;
     }
-    animationId = requestAnimationFrame(playAnimation);
+    requestAnimationFrame(playAnimation);
 }
 
-// 2. بدء الحركة عند تحميل الصفحة
+// تشغيل الأنميشن
 playAnimation();
 
-// 3. أحداث السحب (الماوس واللمس)
-track.addEventListener('mousedown', start);
-track.addEventListener('touchstart', start);
+// 2. أحداث السحب (الماوس واللمس)
+track.addEventListener('mousedown', startDrag);
+track.addEventListener('touchstart', startDrag);
+window.addEventListener('mousemove', drag);
+window.addEventListener('touchmove', drag);
+window.addEventListener('mouseup', endDrag);
+window.addEventListener('touchend', endDrag);
 
-window.addEventListener('mousemove', move);
-window.addEventListener('touchmove', move);
-
-window.addEventListener('mouseup', end);
-window.addEventListener('touchend', end);
-
-function start(e) {
+function startDrag(e) {
     isDragging = true;
-    // تحديد نقطة البداية (ماوس أو لمس)
     startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
     track.style.cursor = 'grabbing';
 }
 
-function move(e) {
+function drag(e) {
     if (!isDragging) return;
-    
     const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    const walk = x - startX; // المسافة المقطوعة باليد
+    const walk = x - startX;
     
-    currentTranslate += walk; // تحديث الموقع الحالي بناءً على السحب
-    startX = x; // إعادة تعيين النقطة لتجنب القفزات الكبيرة
-    
+    currentTranslate += walk;
+    startX = x;
+
+    // معالجة السحب العكسي (إذا سحب المستخدم لليمين ووصل للبداية)
+    if (currentTranslate > 0) {
+        currentTranslate = -totalWidth;
+    }
+    // معالجة السحب للأمام (إذا سحب لليسار ووصل للنهاية)
+    if (Math.abs(currentTranslate) >= totalWidth) {
+        currentTranslate = 0;
+    }
+
     track.style.transform = `translateX(${currentTranslate}px)`;
 }
 
-function end() {
+function endDrag() {
     isDragging = false;
     track.style.cursor = 'grab';
 }
 
-// توقف الحركة عند مرور الماوس (اختياري)
-track.addEventListener('mouseenter', () => { if(!isDragging) isDragging = true; }); 
-track.addEventListener('mouseleave', () => { if(isDragging) isDragging = false; });
+// 3. وظيفة الأزرار (السابق والتالي) مع دعم الاستمرارية
+function moveManual(direction) {
+    const step = 300; 
+    track.style.transition = "transform 0.5s ease-out"; // تنعيم الحركة للزر فقط
+    
+    currentTranslate += (direction * step);
+
+    // التحقق من الحدود أثناء الضغط على الأزرار
+    if (currentTranslate > 0) {
+        currentTranslate = -totalWidth;
+    }
+    if (Math.abs(currentTranslate) >= totalWidth) {
+        currentTranslate = 0;
+    }
+
+    track.style.transform = `translateX(${currentTranslate}px)`;
+
+    // إزالة التنعيم بعد انتهاء الحركة لكي لا يخرب السحب اليدوي
+    setTimeout(() => {
+        track.style.transition = "none";
+    }, 500);
+}
+//the end

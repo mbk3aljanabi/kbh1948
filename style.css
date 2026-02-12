@@ -37,7 +37,7 @@
 }
   /* تنسيق الهيدر بالكامل */
 .main-header {
-    background: #6b2c0d;
+    background: linear-gradient(135deg, #943a0d, #00000033);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
     position:-webkit-sticky; /* مهم لبعض أجهزة الموبايل */
@@ -99,19 +99,25 @@
 
 
 
-    .hero {
-      background-position: center;
-      background-size: cover;
-      background-repeat: repeat;
-      height: auto;
-      width: 100%;
-      display: contents;
-      max-width: 100%;
-    }
-    
-    .hero img {
-    display: block;
-    }
+/* كلاس مساعد لإضافة نعومة عند الضغط على الأزرار فقط */
+.smooth-transition {
+    transition: transform 0.5s ease-out !important;
+}
+
+
+.hero {
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  height: auto;
+  width: 100%;
+  display: contents;
+  max-width: 100%;
+}
+
+.hero img {
+display: block;
+}
 /* تأكد أن الصور لا تخرج عن إطار الشاشة أبداً */
 img {
     max-width: 100%;
@@ -120,7 +126,6 @@ img {
 
 /* تعديل الحاويات لتكون مرنة */
 .container {
-    padding: 20px;
     max-width: 100%;
     margin: auto;
     overflow: hidden;
@@ -195,7 +200,6 @@ img {
 }
 
 
-/* ********************************************  */
   /*  card_count */
 .carousel-container {
     width: 100%;
@@ -204,59 +208,60 @@ img {
     background: #dddbc3;
     direction:ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }
-/*.carousel-track:hover {
-    animation-play-state: paused;
-} */
+
 .carousel-track {
     display: flex;
     width: max-content;
     cursor: grab; /* يغير شكل الماوس ليد ممسكة */
     user-select: none; /* منع تحديد النصوص/الصور أثناء السحب */
-    will-change: transform; /* تحسين الأداء */
+    will-change: none; /* تحسين الأداء */
 }
 
 .carousel-track:active {
     cursor: grabbing; /* شكل اليد عند الضغط والسحب */
 }
 .card_count {
-    height:max-content;
+    height: 300px; /* ارتفاع ثابت لجميع الكروت */
+    width: auto;   /* العرض يتمدد حسب محتوى الصورة */
+    min-width: 14rem; 
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً (صورة ثم نص) */
+    align-items: center;    /* توسيط العناصر أفقياً */
+    justify-content: center; /* توسيط العناصر عمودياً داخل الارتفاع الثابت */
     flex-shrink: 0;
     margin: 10px;
-    border: 3px solid #ddd;
     border-radius: 2rem;
-    background: linear-gradient(135deg, #ffffff, #ffffff);
-    text-align: center;
     text-decoration: none; 
-    color: rgb(255, 255, 255);
-    width: 12rem; /* عرض ثابت يتناسب مع الموبايل والكمبيوتر */
-    box-shadow: 0 4px 10px rgb(0, 0, 1);
     transition: transform 0.3s ease;
+    overflow: hidden;
+    padding: 10px; /* مسافة داخلية لحماية الصورة من لمس الإطار */
 }
+
 .card_count img {
-    margin: 10px;
-    width: 150px;
-    height:max-content;
-    text-align: center;
-    object-fit: cover;
-    border-radius: 30px; /* جعل الصور دائرية أجمل للمعرض */
+    /* هذا الجزء يضمن أن الصورة ستتوسط الكرت وتصغر إذا كانت كبيرة */
+    max-width: 100%; 
+    max-height: 70%; /* ترك مساحة للنص بالأسفل */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* عرض الصورة كاملة بدون قص */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin-bottom: 10px; /* مسافة بين الصورة والنص */
 }
+
 .card_count p {
+    margin: 0;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
     color: #f80d0d;
-    
+    /* يضمن بقاء النص في الأسفل دائماً */
 }
 .card_count:hover {
     transform: translateY(-10px);
     border-color: #c2d400;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
-
-
-
-
-
 
     /*   cards    */
 

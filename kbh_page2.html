@@ -104,15 +104,64 @@ width: 100%;
             background-color: #ffffff; 
             color: #2e0abf; 
         }
-        footer { 
-        width: 100%;
-        padding: 15px 5px;
-        margin-top: auto; 
-        font-size: 0.8rem; 
-        color: #2e0abf;
-        background-color: #ffffff;
-        text-align: center;
-        }
+  footer {
+    width: 100%;
+    position: relative;
+    padding: 60px 20px;
+    background: #1a1a1a;
+    text-align: center;
+    /* تهيئة المنظور الـ 3D */
+    perspective: 1000px; 
+    overflow: visible; /* مهم لظهور البروز */
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(to bottom, #2c2c2c, #000000);
+    /* إمالة الخلفية لتبدو كقاعدة 3D */
+    transform: rotateX(25deg);
+    transform-origin: top;
+    border-top: 5px solid #c2d400;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 
+                inset 0 0 20px rgba(194, 212, 0, 0.2);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+footer p {
+    position: relative;
+    z-index: 2; /* ليكون النص فوق القاعدة الـ 3D */
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* جعل النص يبدو وكأنه مرتفع عن القاعدة */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.9);
+    transform: translateZ(30px); /* رفع النص في الفضاء */
+}
+
+footer p span {
+    color: #d40000;
+    text-shadow: 0 0 10px rgba(194, 212, 0, 0.5);
+}
+
+/* تأثير الحركة عند التمرير أو وضع الماوس */
+footer:hover::before {
+    transform: rotateX(15deg); /* ينخفض قليلاً عند اللمس */
+    transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top-color: #f80d0d;
+}
+
+footer:hover p {
+    transform: translateZ(50px); /* يبرز النص للأمام أكثر عند الحوم عليه */
+    transition: 0.6s;
+}
+
     /* تعديلات خاصة للموبايل فقط */
     @media (max-width: 600px) {
         header h1 { font-size: 1rem; }
@@ -151,9 +200,13 @@ width: 100%;
 
     <a href="index.html" class="back-btn">👉 العودة للموقع الرسمي</a>
 
-    <footer>
-  <p>© 2026  جميع الحقوق محفوظة - الشيخ كريم برهان حسين الجنابي -  تصميم وبرمجة / مرتضى بشير كريم الجنابي</p>
-    </footer>
+ <footer>
+  <p>
+    © 2026 جميع الحقوق محفوظة - 
+    <span>الشيخ كريم برهان حسين الجنابي</span> <br> 
+    تصميم وبرمجة / <span>مرتضى بشير كريم الجنابي</span>
+  </p>
+</footer>
     <div class="search-wrapper">
     <div id="searchBox" class="search-box">
         <input type="text" id="searchInput" style="color: #943a0d;" placeholder="اكتب للبحث..." onkeypress="handleSearch(event)">

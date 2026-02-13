@@ -568,8 +568,8 @@ footer p {
 }
 
 footer p span {
-    color: #c2d400;
-    text-shadow: 0 0 10px rgba(194, 212, 0, 0.5);
+    color: #00d9ff;
+    text-shadow: 0 0 10px rgb(212, 0, 0);
 }
 
 /* تأثير الحركة عند التمرير أو وضع الماوس */
@@ -584,7 +584,7 @@ footer:hover p {
     transition: 0.6s;
 }
 
-    .search-wrapper {
+.search-wrapper {
     position: fixed;
     bottom: 30px;
     left: 30px;

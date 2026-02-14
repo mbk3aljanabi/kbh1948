@@ -175,9 +175,469 @@ const detailsData = {
         year: "",
         country: "",
         desc: "  "
-    }
-
-
+    },
+    "24": { 
+        img: "folder_images/24.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "25": { 
+        img: "folder_images/25.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "26": { 
+        img: "folder_images/26.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "27": { 
+        img: "folder_images/27.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "28": { 
+        img: "folder_images/28.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "29": { 
+        img: "folder_images/29.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "30": { 
+        img: "folder_images/30.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "31": { 
+        img: "folder_images/31.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "32": { 
+        img: "folder_images/32.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "33": { 
+        img: "folder_images/33.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "34": { 
+        img: "folder_images/34.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "35": { 
+        img: "folder_images/35.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "36": { 
+        img: "folder_images/36.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "37": { 
+        img: "folder_images/37.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "38": { 
+        img: "folder_images/38.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "39": { 
+        img: "folder_images/39.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "40": { 
+        img: "folder_images/40.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "41": { 
+        img: "folder_images/41.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "42": { 
+        img: "folder_images/42.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "43": { 
+        img: "folder_images/43.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "44": { 
+        img: "folder_images/44.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "45": { 
+        img: "folder_images/45.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "46": { 
+        img: "folder_images/46.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "47": { 
+        img: "folder_images/47.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "48": { 
+        img: "folder_images/48.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "49": { 
+      img:"folder_images/49.jpg",
+      year:"",
+      country:"",
+      desc:""
+   },
+  	"50": {
+      img:"folder_images/50.jpg",
+      year:"",
+      country:"",
+      desc:""
+   },
+    "51": { 
+        img: "folder_images/51.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "52": { 
+        img: "folder_images/52.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "53": { 
+        img: "folder_images/53.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "54": { 
+        img: "folder_images/54.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "55": { 
+        img: "folder_images/55.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "56": { 
+        img: "folder_images/56.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "57": { 
+        img: "folder_images/57.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "58": { 
+        img: "folder_images/58.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "59": { 
+        img: "folder_images/59.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "60": { 
+        img: "folder_images/60.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "61": { 
+        img: "folder_images/61.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "62": { 
+        img: "folder_images/62.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "63": { 
+        img: "folder_images/63.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "64": { 
+        img: "folder_images/64.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "65": { 
+        img: "folder_images/65.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "66": { 
+        img: "folder_images/66.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "67": { 
+        img: "folder_images/67.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "68": { 
+        img: "folder_images/68.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "69": { 
+        img: "folder_images/69.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "70": { 
+        img: "folder_images/70.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "71": { 
+        img: "folder_images/71.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "72": { 
+        img: "folder_images/72.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "73": { 
+        img: "folder_images/73.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "74": { 
+        img: "folder_images/74.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "75": { 
+        img: "folder_images/75.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "76": { 
+        img: "folder_images/76.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "77": { 
+        img: "folder_images/77.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "78": { 
+        img: "folder_images/78.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "79": { 
+      img:"folder_images/79.jpg",
+      year:"",
+      country:"",
+      desc:""
+   },
+  	"80": {
+      img:"folder_images/80.jpg",
+      year:"",
+      country:"",
+      desc:""
+   },
+    "81": { 
+        img: "folder_images/81.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "82": { 
+        img: "folder_images/82.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "83": { 
+        img: "folder_images/83.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "84": { 
+        img: "folder_images/84.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "85": { 
+        img: "folder_images/85.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "86": { 
+        img: "folder_images/86.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "87": { 
+        img: "folder_images/87.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "88": { 
+        img: "folder_images/88.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "89": { 
+        img: "folder_images/89.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "90": { 
+        img: "folder_images/90.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "91": { 
+        img: "folder_images/91.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "92": { 
+        img: "folder_images/92.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "93": { 
+        img: "folder_images/93.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "94": { 
+        img: "folder_images/94.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "95": { 
+        img: "folder_images/95.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "96": { 
+        img: "folder_images/96.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "97": { 
+        img: "folder_images/97.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "98": { 
+        img: "folder_images/98.jpg",
+        year: "",
+        country: "",
+        desc: "  "
+    },
+    "99": { 
+        img:"folder_images/99.jpg",
+      year:"",
+      country:"",
+      desc:""
+   },
+  	"100": {
+      img:"folder_images/100.jpg",
+      year:"",
+      country:"",
+      desc:""
+   }
 
 };
 

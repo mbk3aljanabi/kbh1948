@@ -6,7 +6,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-      background: #dddbc3;
+      background: linear-gradient(135deg, #0b4ea2, #f0f1f4);
       overflow-x: hidden;
       width: 100%;
     position: relative;
@@ -19,85 +19,263 @@
     }
 
   
-.lang-btn {
-  z-index: 9999;
-  cursor: pointer;
-  color: #eeff00; /* لون أصفر ذهبي */
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #e7140dca, #1a8c7f);
-    transition: all 0.3s ease;
-}
-.lang-btn:hover {
-    color: #ff0000; /* يتغير اللون للأصفر الذهبي */
-    transform: translateY(-2px);
-}
-  /* تنسيق الهيدر بالكامل */
+/* =========================================
+   الهيدر الرئيسي - تصميم أزرق حكومي فاخر
+   ========================================= */
+
 .main-header {
-  
-    background: linear-gradient(135deg, #943a0d, #00000033);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    position: sticky; /* يجعله مثبتاً بالأعلى عند التمرير */
-    position:-webkit-sticky; /* مهم لبعض أجهزة الموبايل */
+    background:
+        linear-gradient(135deg, #062b63 0%, #0a428f 50%, #062b63 100%);
+
+    position: sticky;
+    position: -webkit-sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 3px solid #943a0d; /* خط ذهبي رفيع لإضافة فخامة */
+
+    padding: 12px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 8px 30px rgba(0, 20, 55, 0.35),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
-/* هذا يتفعل عند التثبيت */
+
+
+/* =========================================
+   عند تثبيت الهيدر
+   ========================================= */
+
 .main-header.fixed {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 }
-.header-container {
 
-    max-width: 100%;
+/* =========================================
+   الحاوية
+   ========================================= */
+
+.header-container {
+    max-width: 1400px;
     margin: 0 auto;
+
     overflow: visible;
+
     display: flex;
-    flex-direction: column; /* جعل العناصر فوق بعضها (الاسم ثم الروابط) */
-    align-items: center;    /* توسيط كل شيء */
+    flex-direction: column;
+    align-items: center;
 }
+
 /* سيتم تطبيق الإزاحة على أي عنصر يتم الانتقال إليه عبر رابط داخلي */
 [id] {
     scroll-margin-top: 140px;
 }
 
+/* =========================================
+   شريط التنقل
+   ========================================= */
 
-/* تنسيق شريط الانتقالات */
 .navbar {
     display: flex;
     justify-content: center;
-    text-align: center;
-    gap: 15px;
-    margin: 1rem;
-    padding: 1px;
-    flex-wrap:wrap;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0;
+    padding: 4px;
+
+    flex-wrap: wrap;
+
+    direction: rtl;
 }
+
+
+/* =========================================
+   أزرار القائمة
+   ========================================= */
 
 .navbar a {
-    color: #eeff00; /* لون أصفر ذهبي */
+    position: relative;
+
+    color: #f5f3f1;
+
     text-decoration: none;
-    font-size: clamp(0.8rem, 3vw, 1.05rem); /* صغير في الموبايل وكبير بالحاسوب */
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #e7140dca, #1a8c7f);
-    transition: all 0.3s ease;
+
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+
+    font-weight: 600;
+
+    padding: 11px 18px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.05)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 4px 12px rgba(0, 20, 60, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    transition:
+        all 0.3s ease;
+
     white-space: nowrap;
+
     flex-shrink: 0;
+
+    overflow: hidden;
 }
 
-/* تأثير عند تمرير الماوس فوق الروابط */
+
+/* =========================================
+   خط مضيء أسفل الزر
+   ========================================= */
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    right: 50%;
+
+    width: 0;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #8fd8ff,
+        #ffffff
+    );
+
+    transform: translateX(50%);
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   تأثير الماوس
+   ========================================= */
+
 .navbar a:hover {
-    color: #ff0000; /* يتغير اللون للأصفر الذهبي */
-    transform: translateY(-2px);
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1261b3,
+            #1976d2
+        );
+
+    border-color: rgba(255, 255, 255, 0.35);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 30, 80, 0.35),
+        0 0 15px rgba(80, 170, 255, 0.18);
+
+    text-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
+
+.navbar a:hover::after {
+    width: 70%;
+}
+
+
+/* =========================================
+   تأثير الضغط
+   ========================================= */
+
+.navbar a:active {
+    transform: translateY(-1px) scale(0.97);
+}
+
+
+/* =========================================
+   تمييز الزر عند التركيز
+   ========================================= */
+
+.navbar a:focus-visible {
+    outline: none;
+
+    border-color: #8fd8ff;
+
+    box-shadow:
+        0 0 0 3px rgba(143, 216, 255, 0.20),
+        0 8px 20px rgba(0, 30, 80, 0.30);
+}
+
+
+/* =========================================
+   الموبايل
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .main-header {
+        padding: 9px 8px;
+    }
+
+    .navbar {
+        gap: 7px;
+
+        margin: 0;
+        padding: 2px;
+
+        justify-content: center;
+    }
+
+    .navbar a {
+        font-size: 0.82rem;
+
+        padding: 9px 12px;
+
+        border-radius: 12px;
+    }
+}
+
+
+/* =========================================
+   الشاشات الصغيرة جداً
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .main-header {
+        padding: 8px 5px;
+    }
+
+    .navbar {
+        gap: 5px;
+    }
+
+    .navbar a {
+        font-size: 0.76rem;
+
+        padding: 8px 10px;
+
+        border-radius: 10px;
+    }
+}
 
 
 /* كلاس مساعد لإضافة نعومة عند الضغط على الأزرار فقط */
@@ -206,7 +384,7 @@ img {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: #dddbc3;
+    background: #eef4fb;
     direction:ltr; /* لتسهيل حسابات الاتجاه يمين/يسار */
 }
 
@@ -255,12 +433,12 @@ img {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
-    color: #f80d0d;
+    color: #1565c0;
     /* يضمن بقاء النص في الأسفل دائماً */
 }
 .card_count:hover {
     transform: translateY(-10px);
-    border-color: #c2d400;
+    border-color: #2f80c9;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
@@ -297,7 +475,7 @@ img {
 
     .card_title {
       margin: 10px;
-      background: linear-gradient(135deg, #0d0de7ca, #943a0d);
+      background: linear-gradient(135deg, #0b4ea2, #071f3a);
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -307,14 +485,14 @@ img {
     }
     .card h3 {
       margin-top: 0;
-      color: #1e90ff;
+      color: #1976d2;
     }
 
     .pdf-link {
       display: inline-block;
       margin-top: 10px;
       padding: 8px 14px;
-      background: #1e90ff;
+      background: #1976d2;
       color: rgb(255, 255, 255);
       border-radius: 6px;
       text-decoration: none;
@@ -322,7 +500,7 @@ img {
     }
 
     .pdf-link:hover {
-      background: #0a3d62;
+      background: #073b78;
     }
 
     /*   nashd    */
@@ -339,15 +517,15 @@ img {
     }
     .card_nashd h3 {
       margin-top: 0;
-      color: rgb(26, 140, 127);
+      color: rgb(30, 111, 185);
     }
         .card_nashd p {
       text-align: justify;
     }
 
     .card_title_nashd {
-      background: linear-gradient(135deg, #0d0de7ca, #1a8c7f);
-      color: #f0f0f0;
+      background: linear-gradient(135deg, #0b4ea2, #071f3a);
+      color: #f5f9ff;
       text-align: center;
       padding: 20px;
       border-radius: 12px;
@@ -358,14 +536,14 @@ img {
       display: inline-block;
       margin-top: auto;
       padding: 8px 14px;
-      background: rgb(26, 140, 127);
+      background: rgb(30, 111, 185);
       color: rgb(255, 255, 255);
       border-radius: 6px;
       text-decoration: none;
       font-size: 14px;
     }
     .nashd-link:hover {
-      background: rgb(12, 65, 59);
+      background: rgb(11, 61, 145);
     }
 
     /*   tahkem    */
@@ -382,15 +560,15 @@ img {
     }
     .card_tahkem h3 {
       margin-top: 0;
-      color: rgb(155, 47, 47);
+      color: rgb(21, 101, 192);
     }
     .card_tahkem p {
       text-align: justify;
     }
 
     .card_title_tahkem {
-      background: linear-gradient(135deg, #0d0de7ca, #9b2f2f);
-      color: #f0f0f0;
+      background: linear-gradient(135deg, #0b4ea2, #071f3a);
+      color: #f5f9ff;
       text-align: center;
       padding: 20px;
       border-radius: 12px;
@@ -401,14 +579,14 @@ img {
       display: inline-block;
       margin-top: auto;
       padding: 8px 14px;
-      background: rgb(155, 47, 47);
+      background: rgb(21, 101, 192);
       color: rgb(255, 255, 255);
       border-radius: 6px;
       text-decoration: none;
       font-size: 14px;
     }
     .tahkem-link:hover {
-      background: rgb(72, 25, 25);
+      background: rgb(7, 59, 120);
     }
 
     /*   ahdeth    */
@@ -425,13 +603,13 @@ img {
     }
     .card_ahdeth h3 {
       margin-top: 0;
-      color: #ff1e1e;
+      color: #1565c0;
     }
     .card_ahdeth p {
       text-align: justify;
     }
     .card_title_ahdeth {
-      background: linear-gradient(135deg, #0d0de7ca, #ff1e1e);
+      background: linear-gradient(135deg, #0b4ea2, #071f3a);
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -443,14 +621,14 @@ img {
       display: inline-block;
       margin-top: auto;
       padding: 8px 14px;
-      background: #ff1e1e;
+      background: #1565c0;
       color: rgb(255, 255, 255);
       border-radius: 6px;
       text-decoration: none;
       font-size: 14px;
     }
     .ahdeth-link:hover {
-      background: #7b1313;
+      background: #073b78;
 
     }
     
@@ -458,7 +636,7 @@ img {
     /*  tawasil  */
 
     .card_tawasil_title {
-      background: linear-gradient(135deg, #0d0de7, #000000);
+      background: linear-gradient(135deg, #0b4ea2, #071f3a);
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -470,7 +648,7 @@ img {
 .card_tawasil {
     max-width: 800px;
     margin: 0 auto;
-    background: linear-gradient(145deg, #1a1a1a, #000000); /* تدرج أسود فخم */
+    background: linear-gradient(145deg, #12345b, #071f3a); /* تدرج أزرق حكومي فخم */
     color: #ffffff;
     padding: 30px;
     border-radius: 20px;
@@ -501,12 +679,12 @@ img {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #e0e0e0;
+    color: #e7f2ff;
 }
 
 /* تنسيق الزر (الذي كان pdf-link) ليكون مميزاً */
 .pdf-link {
-    background: linear-gradient(45deg, #00bcd4, #2e0abf);
+    background: linear-gradient(45deg, #2196d3, #0b4ea2);
     color: white;
     text-decoration: none;
     padding: 8px 20px;
@@ -530,7 +708,7 @@ img {
 footer {
     position: relative;
     padding: 60px 20px;
-    background: #1a1a1a;
+    background: #12345b;
     text-align: center;
     /* تهيئة المنظور الـ 3D */
     perspective: 1000px; 
@@ -544,11 +722,11 @@ footer::before {
     left: 5%;
     width: 90%;
     height: 100%;
-    background: linear-gradient(to bottom, #2c2c2c, #000000);
+    background: linear-gradient(to bottom, #164d80, #071f3a);
     /* إمالة الخلفية لتبدو كقاعدة 3D */
     transform: rotateX(25deg);
     transform-origin: top;
-    border-top: 5px solid #c2d400;
+    border-top: 5px solid #2f80c9;
     box-shadow: 0 20px 50px rgba(0,0,0,0.8), 
                 inset 0 0 20px rgba(194, 212, 0, 0.2);
     border-radius: 20px;
@@ -568,7 +746,7 @@ footer p {
 }
 
 footer p span {
-    color: #00d9ff;
+    color: #8fd8ff;
     text-shadow: 0 0 10px rgb(212, 0, 0);
 }
 
@@ -576,7 +754,7 @@ footer p span {
 footer:hover::before {
     transform: rotateX(15deg); /* ينخفض قليلاً عند اللمس */
     transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    border-top-color: #f80d0d;
+    border-top-color: #1565c0;
 }
 
 footer:hover p {
@@ -596,7 +774,7 @@ footer:hover p {
 }
 
 .search-floating-btn {
-    background: linear-gradient(135deg, #943a0d, #d4a017);
+    background: linear-gradient(135deg, #0b3d91, #2f80c9);
     color: white;
     width: 60px;
     height: 60px;
@@ -615,7 +793,7 @@ footer:hover p {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    border: 2px solid #943a0d;
+    border: 2px solid #0b3d91;
     flex-direction: row;
     gap: 5px;
 }
